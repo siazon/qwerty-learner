@@ -1,12 +1,19 @@
-name: Deployment to Github/Gitee pages
+name: Deployment to Github Pages
 on:
   push:
     branches:
       - master
 env:
   REACT_APP_DEPLOY_ENV: pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -21,15 +28,19 @@ jobs:
         run: yarn
       - name: Build page
         run: yarn build
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./build
-      - name: Sync to Gitee
-        uses: wearerequired/git-mirror-action@master
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.GITEE }}
-        with:
-          source-repo: git@github.com:Kaiyiwing/qwerty-learner.git
-          destination-repo: git@gitee.com:KaiyiWing/qwerty-learner.git
+          path: ./build
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
