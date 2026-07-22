@@ -163,6 +163,26 @@ export class RevisionDictRecord implements IRevisionDictRecord {
   }
 }
 
+export interface IMasteredWordRecord {
+  id?: number
+  word: string
+  dict: string
+  timeStamp: number
+}
+
+export class MasteredWordRecord implements IMasteredWordRecord {
+  id?: number
+  word: string
+  dict: string
+  timeStamp: number
+
+  constructor(word: string, dict: string) {
+    this.word = word
+    this.dict = dict
+    this.timeStamp = getUTCUnixTimestamp()
+  }
+}
+
 export interface IRevisionWordRecord {
   word: string
   timeStamp: number

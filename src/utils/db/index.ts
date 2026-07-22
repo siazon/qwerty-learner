@@ -1,5 +1,5 @@
-import type { IChapterRecord, IReviewRecord, IRevisionDictRecord, IWordRecord, LetterMistakes } from './record'
-import { ChapterRecord, ReviewRecord, WordRecord } from './record'
+import type { IChapterRecord, IMasteredWordRecord, IReviewRecord, IRevisionDictRecord, IWordRecord, LetterMistakes } from './record'
+import { ChapterRecord, MasteredWordRecord, ReviewRecord, WordRecord } from './record'
 import { TypingContext, TypingStateActionType } from '@/pages/Typing/store'
 import type { TypingState } from '@/pages/Typing/store/type'
 import { currentChapterAtom, currentDictIdAtom, isReviewModeAtom } from '@/store'
@@ -12,6 +12,7 @@ class RecordDB extends Dexie {
   wordRecords!: Table<IWordRecord, number>
   chapterRecords!: Table<IChapterRecord, number>
   reviewRecords!: Table<IReviewRecord, number>
+  masteredWordRecords!: Table<IMasteredWordRecord, number>
 
   revisionDictRecords!: Table<IRevisionDictRecord, number>
   revisionWordRecords!: Table<IWordRecord, number>
@@ -31,6 +32,12 @@ class RecordDB extends Dexie {
       chapterRecords: '++id,timeStamp,dict,chapter,time,[dict+chapter]',
       reviewRecords: '++id,dict,createTime,isFinished',
     })
+    this.version(4).stores({
+      wordRecords: '++id,word,timeStamp,dict,chapter,wrongCount,[dict+chapter]',
+      chapterRecords: '++id,timeStamp,dict,chapter,time,[dict+chapter]',
+      reviewRecords: '++id,dict,createTime,isFinished',
+      masteredWordRecords: '++id,word,dict,timeStamp,[dict+word]',
+    })
   }
 }
 
@@ -39,6 +46,7 @@ export const db = new RecordDB()
 db.wordRecords.mapToClass(WordRecord)
 db.chapterRecords.mapToClass(ChapterRecord)
 db.reviewRecords.mapToClass(ReviewRecord)
+db.masteredWordRecords.mapToClass(MasteredWordRecord)
 
 export function useSaveChapterRecord() {
   const currentChapter = useAtomValue(currentChapterAtom)
@@ -119,6 +127,26 @@ export function useSaveWordRecord() {
   )
 
   return saveWordRecord
+}
+
+export function useMarkWordAsMastered() {
+  const dictID = useAtomValue(currentDictIdAtom)
+
+  const markWordAsMastered = useCallback(
+    async (word: string) => {
+      try {
+        const existingCount = await db.masteredWordRecords.where('[dict+word]').equals([dictID, word]).count()
+        if (existingCount === 0) {
+          await db.masteredWordRecords.add(new MasteredWordRecord(word, dictID))
+        }
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    [dictID],
+  )
+
+  return markWordAsMastered
 }
 
 export function useDeleteWordRecord() {

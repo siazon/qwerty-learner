@@ -23,7 +23,7 @@ import {
 } from '@/store'
 import type { Word } from '@/typings'
 import { CTRL, getUtcStringForMixpanel } from '@/utils'
-import { useSaveWordRecord } from '@/utils/db'
+import { useMarkWordAsMastered, useSaveWordRecord } from '@/utils/db'
 import { useAtomValue } from 'jotai'
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { useHotkeys } from 'react-hotkeys-hook'
@@ -41,6 +41,7 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
   const isIgnoreCase = useAtomValue(isIgnoreCaseAtom)
   const isShowAnswerOnHover = useAtomValue(isShowAnswerOnHoverAtom)
   const saveWordRecord = useSaveWordRecord()
+  const markWordAsMastered = useMarkWordAsMastered()
   // const wordLogUploader = useMixPanelWordLogUploader(state)
   const [playKeySound, playBeepSound, playHintSound] = useKeySounds()
   const pronunciationIsOpen = useAtomValue(pronunciationIsOpenAtom)
@@ -125,6 +126,18 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
       }
     },
     [state.isTyping],
+    { enableOnFormTags: true, preventDefault: true },
+  )
+
+  useHotkeys(
+    'ctrl+backspace',
+    (e) => {
+      e.preventDefault()
+      if (!state.isTyping || e.repeat) return
+      markWordAsMastered(word.name)
+      dispatch({ type: TypingStateActionType.SKIP_WORD })
+    },
+    [state.isTyping, word.name, markWordAsMastered, dispatch],
     { enableOnFormTags: true, preventDefault: true },
   )
 

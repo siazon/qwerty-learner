@@ -26,7 +26,7 @@ import { useImmerReducer } from 'use-immer'
 const App: React.FC = () => {
   const [state, dispatch] = useImmerReducer(typingReducer, structuredClone(initialState))
   const [isLoading, setIsLoading] = useState<boolean>(true)
-  const { words } = useWordList()
+  const { words, isLoading: isWordListLoading } = useWordList()
 
   const [currentDictId, setCurrentDictId] = useAtom(currentDictIdAtom)
   const setCurrentChapter = useSetAtom(currentChapterAtom)
@@ -74,8 +74,15 @@ const App: React.FC = () => {
   }, [dispatch])
 
   useEffect(() => {
-    state.chapterData.words?.length > 0 ? setIsLoading(false) : setIsLoading(true)
-  }, [state.chapterData.words])
+    if (state.chapterData.words?.length > 0) {
+      setIsLoading(false)
+    } else if (!isWordListLoading && words.length === 0) {
+      // 本章节单词已被全部标记为熟练（或本身为空），不再是「加载中」状态
+      setIsLoading(false)
+    } else {
+      setIsLoading(true)
+    }
+  }, [state.chapterData.words, isWordListLoading, words.length])
 
   useEffect(() => {
     if (!state.isTyping) {
@@ -157,6 +164,8 @@ const App: React.FC = () => {
                     role="status"
                   ></div>
                 </div>
+              ) : state.chapterData.words.length === 0 ? (
+                <p className="select-none text-center text-xl text-gray-600 dark:text-gray-50">本章节单词已全部标记为熟练 🎉</p>
               ) : (
                 !state.isFinished && <WordPanel />
               )}

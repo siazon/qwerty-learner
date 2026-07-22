@@ -1,6 +1,20 @@
 {
   "permissions": {
-    "allow": ["WebSearch"],
+    "allow": [
+      "WebSearch",
+      "Bash(awk -F',' '{print NF}' \"C:/Users/siazon/Downloads/NGSL_1.2_stats.csv\")",
+      "Bash(node build-ngsl.js)",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('public/dicts/NGSL_1.2.json','utf-8'\\)\\); console.log\\('valid json, entries:', JSON.parse\\(require\\('fs'\\).readFileSync\\('public/dicts/NGSL_1.2.json','utf-8'\\)\\).length\\)\")",
+      "Bash(node scripts/update-dict-size.js)",
+      "Bash(grep -E '\\\\.[0-9]+\\\\.json$|[a-zA-Z0-9]\\\\.[a-zA-Z0-9]+\\\\.json$')",
+      "Bash(npx tsc *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173 --max-time 3)",
+      "PowerShell(Get-Command *)",
+      "PowerShell(\\(Invoke-WebRequest -Uri \"http://localhost:5173/dicts/NGSL_1.2.json\" -UseBasicParsing\\).Content.Length)",
+      "PowerShell(Get-CimInstance *)",
+      "Bash(xargs -I{} echo {})"
+    ],
     "deny": [],
     "ask": []
   }

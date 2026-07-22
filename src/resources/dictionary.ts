@@ -579,6 +579,17 @@ const chinaExam: DictionaryResource[] = [
     language: 'en',
     languageCategory: 'en',
   },
+  {
+    id: 'ngsl_1_2',
+    name: 'NGSL 1.2',
+    description: '新通用服务词表 (New General Service List) 常用词汇',
+    category: '英语词典',
+    tags: ['其他'],
+    url: '/dicts/NGSL_1.2.json',
+    length: 1755,
+    language: 'en',
+    languageCategory: 'en',
+  },
 ]
 
 // 国际考试

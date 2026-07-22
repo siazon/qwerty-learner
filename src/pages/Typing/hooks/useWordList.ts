@@ -1,6 +1,7 @@
 import { CHAPTER_LENGTH } from '@/constants'
 import { currentChapterAtom, currentDictInfoAtom, reviewModeInfoAtom } from '@/store'
 import type { Word, WordWithIndex } from '@/typings/index'
+import { db } from '@/utils/db'
 import { wordListFetcher } from '@/utils/wordListFetcher'
 import { useAtom, useAtomValue } from 'jotai'
 import { useMemo } from 'react'
@@ -27,6 +28,14 @@ export function useWordList(): UseWordListResult {
 
   const isFirstChapter = !isReviewMode && currentDictInfo.id === 'cet4' && currentChapter === 0
   const { data: wordList, error, isLoading } = useSWR(currentDictInfo.url, wordListFetcher)
+  // 练习过程中标记「熟练」不应该触发本 hook 重新计算 words（否则会导致章节被重新初始化、进度清空）
+  // 因此这里读取的是进入该词典时的一次性快照，不随后续标记操作实时刷新，只在切换词典时重新拉取
+  const { data: masteredWords } = useSWR(
+    `masteredWords:${currentDictInfo.id}`,
+    () => db.masteredWordRecords.where('dict').equals(currentDictInfo.id).toArray(),
+    { revalidateOnFocus: false, revalidateOnReconnect: false, revalidateIfStale: false },
+  )
+  const masteredWordSet = useMemo(() => new Set((masteredWords ?? []).map((record) => record.word)), [masteredWords])
 
   const words: WordWithIndex[] = useMemo(() => {
     let newWords: Word[]
@@ -35,7 +44,9 @@ export function useWordList(): UseWordListResult {
     } else if (isReviewMode) {
       newWords = reviewRecord?.words ?? []
     } else if (wordList) {
-      newWords = wordList.slice(currentChapter * CHAPTER_LENGTH, (currentChapter + 1) * CHAPTER_LENGTH)
+      newWords = wordList
+        .slice(currentChapter * CHAPTER_LENGTH, (currentChapter + 1) * CHAPTER_LENGTH)
+        .filter((word) => !masteredWordSet.has(word.name))
     } else {
       newWords = []
     }
@@ -56,7 +67,7 @@ export function useWordList(): UseWordListResult {
         trans,
       }
     })
-  }, [isFirstChapter, isReviewMode, wordList, reviewRecord?.words, currentChapter])
+  }, [isFirstChapter, isReviewMode, wordList, reviewRecord?.words, currentChapter, masteredWordSet])
 
   return { words, isLoading, error }
 }
