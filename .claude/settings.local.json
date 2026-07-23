@@ -13,7 +13,9 @@
       "PowerShell(Get-Command *)",
       "PowerShell(\\(Invoke-WebRequest -Uri \"http://localhost:5173/dicts/NGSL_1.2.json\" -UseBasicParsing\\).Content.Length)",
       "PowerShell(Get-CimInstance *)",
-      "Bash(xargs -I{} echo {})"
+      "Bash(xargs -I{} echo {})",
+      "Bash(awk -F\"'\" '{print $2}')",
+      "Bash(node *)"
     ],
     "deny": [],
     "ask": []

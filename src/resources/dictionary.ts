@@ -590,6 +590,17 @@ const chinaExam: DictionaryResource[] = [
     language: 'en',
     languageCategory: 'en',
   },
+  {
+    id: 'harvard_sentences',
+    name: 'Harvard Sentences',
+    description: '哈佛句子表，语音均衡的英语例句集，常用于语音清晰度测试',
+    category: '英语词典',
+    tags: ['其他'],
+    url: '/dicts/Harvard_Sentences.json',
+    length: 720,
+    language: 'en',
+    languageCategory: 'en',
+  },
 ]
 
 // 国际考试

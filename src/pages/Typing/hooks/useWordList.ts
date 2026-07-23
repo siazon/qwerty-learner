@@ -40,7 +40,7 @@ export function useWordList(): UseWordListResult {
   const words: WordWithIndex[] = useMemo(() => {
     let newWords: Word[]
     if (isFirstChapter) {
-      newWords = firstChapter
+      newWords = firstChapter.filter((word) => !masteredWordSet.has(word.name))
     } else if (isReviewMode) {
       newWords = reviewRecord?.words ?? []
     } else if (wordList) {
