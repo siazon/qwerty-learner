@@ -601,6 +601,17 @@ const chinaExam: DictionaryResource[] = [
     language: 'en',
     languageCategory: 'en',
   },
+  {
+    id: 'ngsl_sentences',
+    name: 'NGSL Sentences',
+    description: 'NGSL 1.2 常用词例句，每个单词一句生动口语例句，背单词同步练口语',
+    category: '英语词典',
+    tags: ['其他'],
+    url: '/dicts/NGSL_Sentences.json',
+    length: 1755,
+    language: 'en',
+    languageCategory: 'en',
+  },
 ]
 
 // 国际考试
