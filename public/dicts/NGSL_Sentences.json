@@ -450,12 +450,6 @@
     ]
   },
   {
-    "name": "I sent my application for the new job.",
-    "trans": [
-      "我提交了那份新工作的申请。"
-    ]
-  },
-  {
     "name": "Obviously, the cat ate the fish again.",
     "trans": [
       "显然，猫又把鱼吃了。"
@@ -486,21 +480,9 @@
     ]
   },
   {
-    "name": "It was raining, but we went out anyway.",
-    "trans": [
-      "当时在下雨，但我们还是出去了。"
-    ]
-  },
-  {
     "name": "He gave a short speech at the party.",
     "trans": [
       "他在派对上做了一个简短的演讲。"
-    ]
-  },
-  {
-    "name": "A kind officer helped us find our dog.",
-    "trans": [
-      "一位友善的警官帮我们找到了狗。"
     ]
   },
   {
@@ -528,27 +510,9 @@
     ]
   },
   {
-    "name": "Water is a very important resource for us.",
-    "trans": [
-      "水对我们来说是非常重要的资源。"
-    ]
-  },
-  {
-    "name": "My favorite class at school is science.",
-    "trans": [
-      "我在学校最喜欢的课是科学课。"
-    ]
-  },
-  {
     "name": "This plant has a strange disease on its leaves.",
     "trans": [
       "这株植物的叶子上得了一种奇怪的病。"
-    ]
-  },
-  {
-    "name": "Can you balance on one foot for ten seconds?",
-    "trans": [
-      "你能单脚站立平衡十秒钟吗？"
     ]
   },
   {
@@ -564,12 +528,6 @@
     ]
   },
   {
-    "name": "Who is the author of this funny book?",
-    "trans": [
-      "这本有趣的书的作者是谁？"
-    ]
-  },
-  {
     "name": "This recipe only needs a few basic ingredients.",
     "trans": [
       "这个食谱只需要几种基本材料。"
@@ -579,12 +537,6 @@
     "name": "My coach always encourages me to try again.",
     "trans": [
       "我的教练总是鼓励我再试一次。"
-    ]
-  },
-  {
-    "name": "Her hair turned pink after the pool.",
-    "trans": [
-      "她从泳池出来后头发变成了粉色。"
     ]
   },
   {
@@ -606,24 +558,6 @@
     ]
   },
   {
-    "name": "Doing exercise every day keeps me strong.",
-    "trans": [
-      "每天运动让我保持强壮。"
-    ]
-  },
-  {
-    "name": "We ate pizza at a new restaurant yesterday.",
-    "trans": [
-      "我们昨天在一家新餐厅吃了披萨。"
-    ]
-  },
-  {
-    "name": "Her part-time job gives her extra income.",
-    "trans": [
-      "她的兼职工作给她带来额外收入。"
-    ]
-  },
-  {
     "name": "This old house is my uncle's property.",
     "trans": [
       "这座老房子是我叔叔的财产。"
@@ -639,12 +573,6 @@
     "name": "Can you imagine a dog that can talk?",
     "trans": [
       "你能想象一只会说话的狗吗？"
-    ]
-  },
-  {
-    "name": "Is it okay if I borrow your pen?",
-    "trans": [
-      "我借用你的笔可以吗？"
     ]
   },
   {
@@ -684,12 +612,6 @@
     ]
   },
   {
-    "name": "I am going to relax this weekend.",
-    "trans": [
-      "这个周末我打算放松一下。"
-    ]
-  },
-  {
     "name": "My cat loves to perform funny tricks.",
     "trans": [
       "我的猫喜欢表演滑稽的把戏。"
@@ -699,12 +621,6 @@
     "name": "This chef is more professional than my mom.",
     "trans": [
       "这位厨师比我妈妈更专业。"
-    ]
-  },
-  {
-    "name": "That huge sandwich on the table is mine.",
-    "trans": [
-      "桌上那个大三明治是我的。"
     ]
   },
   {
@@ -750,27 +666,9 @@
     ]
   },
   {
-    "name": "I would prefer tea instead of coffee.",
-    "trans": [
-      "我更喜欢茶而不是咖啡。"
-    ]
-  },
-  {
     "name": "They will extend the party until midnight.",
     "trans": [
       "他们会把派对延长到午夜。"
-    ]
-  },
-  {
-    "name": "There is a small possibility it will snow tomorrow.",
-    "trans": [
-      "明天有一点可能会下雪。"
-    ]
-  },
-  {
-    "name": "Turn left, that is the right direction.",
-    "trans": [
-      "往左转，那才是正确的方向。"
     ]
   },
   {
@@ -792,12 +690,6 @@
     ]
   },
   {
-    "name": "This female dog has three puppies now.",
-    "trans": [
-      "这只母狗现在有三只小狗了。"
-    ]
-  },
-  {
     "name": "Feeding the dog should be your responsibility.",
     "trans": [
       "喂狗应该是你的责任。"
@@ -807,12 +699,6 @@
     "name": "Keeping the original recipe is important to grandma.",
     "trans": [
       "保留原始食谱对奶奶来说很重要。"
-    ]
-  },
-  {
-    "name": "He doesn't like coffee, nor does he like tea.",
-    "trans": [
-      "他不喜欢咖啡，也不喜欢茶。"
     ]
   },
   {
@@ -831,12 +717,6 @@
     "name": "My uncle works at a travel agency downtown.",
     "trans": [
       "我叔叔在市区一家旅行社工作。"
-    ]
-  },
-  {
-    "name": "Do you have one dollar for the bus?",
-    "trans": [
-      "你有一美元坐公交车吗？"
     ]
   },
   {
@@ -864,21 +744,9 @@
     ]
   },
   {
-    "name": "This game has a free version for kids.",
-    "trans": [
-      "这个游戏有给孩子的免费版本。"
-    ]
-  },
-  {
     "name": "We had a funny conversation about ghosts last night.",
     "trans": [
       "我们昨晚聊了一场关于鬼的有趣对话。"
-    ]
-  },
-  {
-    "name": "Somebody is knocking on our front door.",
-    "trans": [
-      "有人在敲我们家前门。"
     ]
   },
   {
@@ -942,12 +810,6 @@
     ]
   },
   {
-    "name": "She has cleaned her room all by herself.",
-    "trans": [
-      "她自己一个人把房间打扫干净了。"
-    ]
-  },
-  {
     "name": "Suddenly the lights went out at dinner.",
     "trans": [
       "吃饭的时候灯突然熄灭了。"
@@ -981,12 +843,6 @@
     "name": "We will purchase tickets for the fun fair.",
     "trans": [
       "我们会为游乐会买票。"
-    ]
-  },
-  {
-    "name": "He loves to shoot photos of funny cats.",
-    "trans": [
-      "他喜欢拍搞笑猫咪的照片。"
     ]
   },
   {
@@ -1050,12 +906,6 @@
     ]
   },
   {
-    "name": "This small town is famous for its cheese.",
-    "trans": [
-      "这个小镇因奶酪而出名。"
-    ]
-  },
-  {
     "name": "Wear something appropriate for the wedding.",
     "trans": [
       "穿件适合婚礼的衣服。"
@@ -1065,12 +915,6 @@
     "name": "The crash scene was full of police cars.",
     "trans": [
       "车祸现场到处都是警车。"
-    ]
-  },
-  {
-    "name": "The cat seemed content after its nap.",
-    "trans": [
-      "猫睡完午觉后看起来很满足。"
     ]
   },
   {
@@ -1116,21 +960,9 @@
     ]
   },
   {
-    "name": "My heart started to beat really fast.",
-    "trans": [
-      "我的心开始跳得很快。"
-    ]
-  },
-  {
     "name": "The committee will decide who wins the prize.",
     "trans": [
       "委员会将决定谁赢得奖品。"
-    ]
-  },
-  {
-    "name": "Are you aware that it's raining outside?",
-    "trans": [
-      "你知道外面在下雨吗？"
     ]
   },
   {
@@ -1302,12 +1134,6 @@
     ]
   },
   {
-    "name": "It's not fair that he got more candy.",
-    "trans": [
-      "他拿到更多糖果，这不公平。"
-    ]
-  },
-  {
     "name": "We need additional chairs for the party.",
     "trans": [
       "我们还需要一些额外的椅子来办派对。"
@@ -1371,12 +1197,6 @@
     "name": "This software helps me draw funny pictures.",
     "trans": [
       "这个软件帮我画有趣的图片。"
-    ]
-  },
-  {
-    "name": "I bought a new pair of shoes.",
-    "trans": [
-      "我买了一双新鞋。"
     ]
   },
   {
